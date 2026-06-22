@@ -19,7 +19,6 @@
 # EXPOSE 8080
 # CMD ["npm", "start"]
 FROM node:20-alpine AS deps
-RUN npm install -g npm@11.6.4
 WORKDIR /app
 
 COPY shared/package.json ./shared/package.json
@@ -32,8 +31,6 @@ WORKDIR /app/services/dashboard-api
 RUN npm install --omit=dev
 
 FROM node:20-alpine AS runtime
-RUN npm install -g npm@11.6.4
-
 ENV NODE_ENV=production
 WORKDIR /app
 
@@ -42,8 +39,11 @@ COPY --chown=node:node services/dashboard-api ./services/dashboard-api
 COPY --from=deps --chown=node:node /app/shared/node_modules ./shared/node_modules
 COPY --from=deps --chown=node:node /app/services/dashboard-api/node_modules ./services/dashboard-api/node_modules
 
+RUN rm -rf /usr/local/lib/node_modules/npm \
+    && rm -f /usr/local/bin/npm /usr/local/bin/npx
+
 USER node
 WORKDIR /app/services/dashboard-api
 
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["node", "src/server.js"]
