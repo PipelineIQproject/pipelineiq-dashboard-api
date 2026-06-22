@@ -12,7 +12,7 @@ docker build -t <acr-login-server>/final_capstone-dashboard-api:local -f service
 
 This service expects PipelineIQ environment variables from Kubernetes ConfigMap and Key Vault secrets.
  
-```bash
+```bash 
 cd services/dashboard-api
 npm install
 PORT=8080 DATABASE_URL=<postgres-url> npm start
