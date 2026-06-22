@@ -1,6 +1,6 @@
 # PipelineIQ Dashboard API
 
-Independent repository for the PipelineIQ dashboard API.
+Independent repository for the PipelineIQ dashboard API.  
 
 ## Build
 
