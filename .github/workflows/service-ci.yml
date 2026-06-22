@@ -17,7 +17,7 @@ jobs:
       node_project_dir: services/dashboard-api
       chart_path: dashboard-api
       container_port: "8080"
-      smoke_mode: http
+      smoke_mode: command
       sonar_organization: pipelineiqproject
       sonar_project_key: pipelineiq-dashboard-api
     secrets: inherit
