@@ -7,7 +7,7 @@ Independent repository for the PipelineIQ dashboard API.
 ```bash
 docker build -t <acr-login-server>/final_capstone-dashboard-api:local -f services/dashboard-api/Dockerfile .
 ``` 
-
+ 
 ## Local Run
 
 This service expects PipelineIQ environment variables from Kubernetes Conf igMap and Key Vault secrets.
