@@ -9,7 +9,7 @@ docker build -t <acr-login-server>/final_capstone-dashboard-api:local -f service
 ``` 
  
 ## Local Run
-
+ 
 This service expects PipelineIQ environment variables from Kubernetes Conf igMap and Key Vault secrets.
   
 ```bash 
